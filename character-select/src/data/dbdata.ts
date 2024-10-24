@@ -29,7 +29,7 @@ const ImgCharacterData = [
     },
 
     {
-        name: 'Goku (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character012.png',
+        name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character012.png',
         characters: [
             { name: 'Goku (ULTRA INSTINCT -SIGN-)', path: 'src/assets/img/PCard_FavoriteCh/character012.png', },
             { name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character013.png', },
