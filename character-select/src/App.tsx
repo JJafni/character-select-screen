@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import '@mantine/core/styles.css';
+import { MantineProvider, Image, Box, SimpleGrid } from '@mantine/core';
 
-function App() {
-  const [count, setCount] = useState(0)
+
+
+import { useMediaQuery } from '@mantine/hooks'; // Import useMediaQuery
+import character from './data/dbdata'; // Importing character data
+
+const App = () => {
+  const isSmallScreen = useMediaQuery('(max-width: 768px)');
+  const isMediumScreen = useMediaQuery('(max-width: 1024px)');
+
+  // Determine the number of columns based on screen size
+  const cols = isSmallScreen ? 1 : isMediumScreen ? 2 : 3;
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <MantineProvider>
+
+      {/* Allow the Box to expand based on content */}
+      <Box style={{
+         minHeight: '100vh',
+         width: '100vw',
+         overflowY: 'auto',
+         backgroundImage: 'url(https://i.ibb.co/KF3tpzt/db.jpg)', // Path to your background image
+         backgroundSize: 'cover',       // Ensures the image covers the entire area without distortion
+          backgroundPosition: 'center',  // Centers the image
+          backgroundRepeat: 'no-repeat', // Prevents the image from repeating
+          backgroundAttachment: 'fixed', // Keeps the background fixed while scrolling for a better visual effect
+          filter: 'brightness(0.9)',     // Optional: Adjust brightness for readability
+      }} mx="auto">
+
+        {/* Use SimpleGrid for responsive layout */}
+        <SimpleGrid
+          cols={cols}               // Number of columns
+          spacing="lg"             // Space between grid items
+          p="md"                   // Padding around the grid
+        >
+          {/* Map through character data to display each character image */}
+          {character.map((char) => (
+            <Image
+              key={char.name}        // Use a unique key for each image
+              height={'100%'}           // Use numeric value for height
+              src={char.path}        // Path to the character image
+              alt={char.name}        // Alt text for accessibility
+              fit="contain"          // Ensure the image fits well within its space
+            />
+          ))}
+        </SimpleGrid>
+
+      </Box>
+
+
+    </MantineProvider>
+  );
 }
 
-export default App
+export { App };
