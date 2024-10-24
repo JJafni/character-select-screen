@@ -35,9 +35,13 @@ const App = () => {
               threshold: 0.2, // Adjust the threshold to when the animation should trigger
             });
 
-            return (
+            // Define the transform style based on char.type
+            const transformStyle = char.type === 'kid' 
+              ? 'scale(1.8) translateY(10%)' 
+              : 'scale(1.8) translateY(20%)';
 
-              <Box style={{
+            return (
+              <Box key={char.name} style={{
                 position: 'relative',
                 backgroundColor: 'rgba(0, 0, 0, 0.6)',
                 display: 'flex',
@@ -45,27 +49,34 @@ const App = () => {
                 alignItems: 'center',
                 textAlign: 'center',
                 color: 'white',
-                border: '2px solid white',
+                border: '2px',
                 paddingLeft: '50px',
+                clipPath: 'polygon(0 12%, 100% 0, 100% 71%, 0 100%)',
                 boxSizing: 'border-box',
               }}>
-                <Text size="lg" color="white" mt="sm" style={{ marginLeft: '10px' }}>
+                <Text size="lg" mt="sm" style={{ marginLeft: '10px' }}>
                   {char.name}
-                </Text> <motion.div
+                </Text>
+                <motion.div
                   ref={ref} // Attach the ref to the animated component
-                  key={char.name}
                   initial={{ opacity: 0, y: 50 }} // Initial state (hidden)
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Animate when in view or out of view
                   transition={{ duration: 0.5 }} // Smooth transition
                 >
                   <Image
-                    height={'100%'}
                     src={char.path}
                     alt={char.name}
                     fit="contain"
-                  /></motion.div>
+                    style={{
+                      transform: transformStyle, // Apply the conditional transform style
+                      transformOrigin: 'center', // Set the scaling to center
+                      width: 'auto', // Maintain original width
+                      height: 'auto', // Maintain original height
+                      maxHeight: '400px', // Set a maximum height if needed
+                    }}
+                  />
+                </motion.div>
               </Box>
-
             );
           })}
         </SimpleGrid>

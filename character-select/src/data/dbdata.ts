@@ -37,7 +37,7 @@ const ImgCharacterData = [
     },
 
     {
-        name: 'Goku (GT)', path: 'src/assets/img/PCard_FavoriteCh/character015.png',
+        name: 'Goku (GT)', path: 'src/assets/img/PCard_FavoriteCh/character015.png', type: 'kid',
         characters: [
 
             { name: 'Goku (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character015.png', },
@@ -46,7 +46,7 @@ const ImgCharacterData = [
             { name: 'Goku (SUPER SAIYAN 4)', path: 'src/assets/img/PCard_FavoriteCh/character008.png', },
         ]
     },
-    { name: 'Goku (TEEN)', path: 'src/assets/img/PCard_FavoriteCh/character018.png', },
+    { name: 'Goku (TEEN)', path: 'src/assets/img/PCard_FavoriteCh/character018.png', type: 'kid', },
     {
         name: 'Vegeta (Z-Scouter)', path: 'src/assets/img/PCard_FavoriteCh/character019.png',
         characters: [
@@ -82,9 +82,9 @@ const ImgCharacterData = [
         ]
     },
     { name: 'Super Vegeta', path: 'src/assets/img/PCard_FavoriteCh/character030.png', },
-    { name: 'Gohan (KID)', path: 'src/assets/img/PCard_FavoriteCh/character033.png', },
+    { name: 'Gohan (KID)', path: 'src/assets/img/PCard_FavoriteCh/character033.png', type: 'kid', },
     {
-        name: 'Gohan (TEEN)', path: 'src/assets/img/PCard_FavoriteCh/character034.png',
+        name: 'Gohan (TEEN)', path: 'src/assets/img/PCard_FavoriteCh/character034.png', type: 'kid',
         characters: [
             { name: 'Gohan (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character034.png' },
             { name: 'Gohan (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character035.png' },
@@ -150,7 +150,7 @@ const ImgCharacterData = [
     },
 
     {
-        name: 'Trunks (KID)', path: 'src/assets/img/PCard_FavoriteCh/character057.png',
+        name: 'Trunks (KID)', path: 'src/assets/img/PCard_FavoriteCh/character057.png', type: 'kid',
         characters: [
             { name: 'Kid Trunks (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character057.png' },
             { name: 'Kid Trunks (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character058.png' },
@@ -158,7 +158,7 @@ const ImgCharacterData = [
     },
 
     {
-        name: 'Goten', path: 'src/assets/img/PCard_FavoriteCh/character059.png',
+        name: 'Goten', path: 'src/assets/img/PCard_FavoriteCh/character059.png', type: 'kid',
         characters: [
             { name: 'Goten (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character059.png' },
             { name: 'Goten (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character060.png' },
@@ -186,7 +186,7 @@ const ImgCharacterData = [
     { name: 'Gogeta (SUPER SAIYAN 4)', path: 'src/assets/img/PCard_FavoriteCh/character066.png', },
     { name: 'Super Gogeta (Z)', path: 'src/assets/img/PCard_FavoriteCh/character068.png', },
     {
-        name: 'Gotenks', path: 'src/assets/img/PCard_FavoriteCh/character069.png',
+        name: 'Gotenks', path: 'src/assets/img/PCard_FavoriteCh/character069.png', type: 'kid',
         characters: [
             { name: 'Gotenks (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character069.png' },
             { name: 'Gotenks (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character070.png' },
@@ -233,7 +233,7 @@ const ImgCharacterData = [
         ]
     },
 
-    { name: 'Cell Jr.', path: 'src/assets/img/PCard_FavoriteCh/character087.png', },
+    { name: 'Cell Jr.', path: 'src/assets/img/PCard_FavoriteCh/character087.png', type: 'kid', },
     { name: 'Majin Buu', path: 'src/assets/img/PCard_FavoriteCh/character088.png', },
     { name: 'Majin Buu (EVIL)', path: 'src/assets/img/PCard_FavoriteCh/character089.png', },
     {
@@ -245,9 +245,9 @@ const ImgCharacterData = [
         ]
     },
 
-    { name: 'Kid Buu', path: 'src/assets/img/PCard_FavoriteCh/character093.png', },
+    { name: 'Kid Buu', path: 'src/assets/img/PCard_FavoriteCh/character093.png', type: 'kid',},
     { name: 'Mr. Satan', path: 'src/assets/img/PCard_FavoriteCh/character094.png', },
-    { name: 'Chiaotzu', path: 'src/assets/img/PCard_FavoriteCh/character095.png', },
+    { name: 'Chiaotzu', path: 'src/assets/img/PCard_FavoriteCh/character095.png', type: 'kid', },
     { name: 'Yajirobe', path: 'src/assets/img/PCard_FavoriteCh/character096.png', },
     { name: 'Pan (GT)', path: 'src/assets/img/PCard_FavoriteCh/character097.png', },
     {
@@ -260,7 +260,7 @@ const ImgCharacterData = [
 
     { name: 'Bardock', path: 'src/assets/img/PCard_FavoriteCh/character100.png', },
     { name: 'Raditz', path: 'src/assets/img/PCard_FavoriteCh/character101.png', },
-    { name: 'Saibaman', path: 'src/assets/img/PCard_FavoriteCh/character102.png', },
+    { name: 'Saibaman', path: 'src/assets/img/PCard_FavoriteCh/character102.png', type: 'kid', },
     { name: 'Nappa', path: 'src/assets/img/PCard_FavoriteCh/character103.png', },
     {
         name: 'Zarbon', path: 'src/assets/img/PCard_FavoriteCh/character104.png',
@@ -284,7 +284,7 @@ const ImgCharacterData = [
     { name: 'Android 18', path: 'src/assets/img/PCard_FavoriteCh/character117.png', },
     { name: 'Android 19', path: 'src/assets/img/PCard_FavoriteCh/character118.png', },
     { name: 'Doctor Gero', path: 'src/assets/img/PCard_FavoriteCh/character119.png', },
-    { name: 'Babidi', path: 'src/assets/img/PCard_FavoriteCh/character120.png', },
+    { name: 'Babidi', path: 'src/assets/img/PCard_FavoriteCh/character120.png', type: 'kid', },
     { name: 'Dabura', path: 'src/assets/img/PCard_FavoriteCh/character121.png', },
     { name: 'Frieza Force Soldier', path: 'src/assets/img/PCard_FavoriteCh/character122.png', },
     {
@@ -437,7 +437,7 @@ const ImgCharacterData = [
     { name: 'Kakunsa', path: 'src/assets/img/PCard_FavoriteCh/character179.png', },
     { name: 'Roasie', path: 'src/assets/img/PCard_FavoriteCh/character180.png', },
     { name: 'Anilaza', path: 'src/assets/img/PCard_FavoriteCh/character181.png', },
-    { name: 'Goku (MINI)', path: 'src/assets/img/PCard_FavoriteCh/character182.png', },
+    { name: 'Goku (MINI)', path: 'src/assets/img/PCard_FavoriteCh/character182.png', type: 'kid', },
 ];
 
 export default ImgCharacterData;
