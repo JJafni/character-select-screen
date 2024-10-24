@@ -45,15 +45,14 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
                 position: 'relative',
                 backgroundColor: isHovered ? 'black' : 'rgba(0, 0, 0, 0.6)',
                 display: 'flex',
-                justifyContent: 'space-between',
+                boxShadow: isHovered ? 'rgba(255, 255, 255, 0.3) 0px 18px 36px -18px inset': 'none',                justifyContent: 'space-between',
                 alignItems: 'center',
                 textAlign: 'center',
                 color: 'white',
-                border: '2px solid transparent',
                 paddingLeft: '50px',
                 clipPath: 'polygon(0 12%, 100% 0, 100% 71%, 0 100%)',
                 boxSizing: 'border-box',
-                transition: 'background-color 0.3s ease',
+                transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

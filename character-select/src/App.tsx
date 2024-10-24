@@ -1,7 +1,7 @@
 import './App.css';
 import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { useMediaQuery, } from '@mantine/hooks';
 import { BoxMain } from './components';
 import CharacterGrid from './components/CharacterLayout/CharacterGrid';
 import characterData from './data/dbdata';
