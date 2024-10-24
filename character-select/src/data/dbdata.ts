@@ -76,8 +76,8 @@ const ImgCharacterData = [
         characters: [
             { name: 'Vegeta (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character027.png', },
             { name: 'Vegeta (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character028.png', },
-            { name: 'Vegeta (SUPER SAIYAN GOD)', path: 'src/assets/img/PCard_FavoriteCh/character030.png', },
-            { name: 'Vegeta (SUPER SAIYAN GOD SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character031.png', },
+            { name: 'Vegeta (SUPER SAIYAN GOD)', path: 'src/assets/img/PCard_FavoriteCh/character031.png', },
+            { name: 'Vegeta (SUPER SAIYAN GOD SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character029.png', },
 
         ]
     },
