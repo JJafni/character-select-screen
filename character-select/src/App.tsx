@@ -22,7 +22,7 @@ const App = () => {
          minHeight: '100vh',
          width: '100vw',
          overflowY: 'auto',
-         backgroundImage: 'url(https://i.ibb.co/KF3tpzt/db.jpg)', // Path to your background image
+        //  backgroundImage: 'url(https://i.ibb.co/KF3tpzt/db.jpg)', // Path to your background image
          backgroundSize: 'cover',       // Ensures the image covers the entire area without distortion
           backgroundPosition: 'center',  // Centers the image
           backgroundRepeat: 'no-repeat', // Prevents the image from repeating
