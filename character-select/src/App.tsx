@@ -1,56 +1,51 @@
 import './App.css';
 import '@mantine/core/styles.css';
-import { MantineProvider, Image, Box, SimpleGrid } from '@mantine/core';
-
-
-
-import { useMediaQuery } from '@mantine/hooks'; // Import useMediaQuery
-import character from './data/dbdata'; // Importing character data
+import { MantineProvider, Image, Box, SimpleGrid, Text } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
+import character from './data/dbdata';
 
 const App = () => {
   const isSmallScreen = useMediaQuery('(max-width: 768px)');
   const isMediumScreen = useMediaQuery('(max-width: 1024px)');
 
-  // Determine the number of columns based on screen size
   const cols = isSmallScreen ? 1 : isMediumScreen ? 2 : 3;
 
   return (
     <MantineProvider>
-
-      {/* Allow the Box to expand based on content */}
       <Box style={{
-         minHeight: '100vh',
-         width: '100vw',
-         overflowY: 'auto',
-         backgroundImage: 'url(https://i.ibb.co/KF3tpzt/db.jpg)', // Path to your background image
-         backgroundSize: 'cover',       // Ensures the image covers the entire area without distortion
-          backgroundPosition: 'center',  // Centers the image
-          backgroundRepeat: 'no-repeat', // Prevents the image from repeating
-          backgroundAttachment: 'fixed', // Keeps the background fixed while scrolling for a better visual effect
-          filter: 'brightness(0.9)',     // Optional: Adjust brightness for readability
+        minHeight: '100vh',
+        width: '100vw',
+        overflowY: 'auto',
+        backgroundImage: 'url(https://i.ibb.co/KF3tpzt/db.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        filter: 'brightness(0.9)',
       }} mx="auto">
 
-        {/* Use SimpleGrid for responsive layout */}
-        <SimpleGrid
-          cols={cols}               // Number of columns
-          spacing="lg"             // Space between grid items
-          p="md"                   // Padding around the grid
-        >
-          {/* Map through character data to display each character image */}
+        <SimpleGrid cols={cols} spacing="lg" p="md">
           {character.map((char) => (
-            <Image
-              key={char.name}        // Use a unique key for each image
-              height={'100%'}           // Use numeric value for height
-              src={char.path}        // Path to the character image
-              alt={char.name}        // Alt text for accessibility
-              fit="contain"          // Ensure the image fits well within its space
-            />
+            <Box key={char.name} style={{
+              textAlign: 'center',
+              border: '2px solid white', // Add border
+              borderRadius: '8px', // Rounded corners
+              padding: '10px', // Inner spacing
+              backgroundColor: 'rgba(0, 0, 0, 0.6)', // Optional: Background color for contrast
+            }}>  <Text size="lg" color="white" mt="sm">
+                {char.name}
+              </Text>
+              <Image
+                height={'100%'}
+                src={char.path}
+                alt={char.name}
+                fit="contain"
+              />
+
+            </Box>
           ))}
         </SimpleGrid>
-
       </Box>
-
-
     </MantineProvider>
   );
 }
