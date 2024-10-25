@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Text, Image, Modal } from '@mantine/core';
+import { Box, Text, Image, Modal, Tabs } from '@mantine/core';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -8,7 +8,7 @@ interface CharacterCardProps {
         name: string;
         path: string;
         type: string;
-        characters?: { name: string; path: string }[];
+        characters?: { name: string; path: string }[]; // Ensure this is defined for multi-form characters
     };
 }
 
@@ -102,24 +102,36 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
                 </motion.div>
             </Box>
 
-            {/* Modal for displaying the image */}
+            {/* Modal for displaying the image with tabs */}
             <Modal
                 opened={modalOpen}
                 onClose={() => setModalOpen(false)}
                 withCloseButton
                 size="lg"
-            
+                transitionProps={{ transition: 'fade', duration: 300 }} // Use transitionProps instead
             >
-                <Image
-                    src={char.characters ? char.characters[currentFormIndex]?.path : char.path}
-                    alt={char.characters ? char.characters[currentFormIndex]?.name : char.name}
-                    fit="contain"
-                    style={{
-                        maxHeight: '80vh',
-                        margin: 'auto',
-                        display: 'block',
-                    }}
-                />
+                <Tabs value={currentFormIndex.toString()} onChange={(value) => setCurrentFormIndex(parseInt(value))}>
+                    <Tabs.List>
+                        {char.characters && char.characters.map((character, index) => (
+                            <Tabs.Tab key={index} value={index.toString()}>
+                                {character.name}
+                            </Tabs.Tab>
+                        ))}
+                    </Tabs.List>
+
+                    <Tabs.Panel value={currentFormIndex.toString()} pt="xs">
+                        <Image
+                            src={char.characters ? char.characters[currentFormIndex]?.path : char.path}
+                            alt={char.characters ? char.characters[currentFormIndex]?.name : char.name}
+                            fit="contain"
+                            style={{
+                                maxHeight: '80vh',
+                                margin: 'auto',
+                                display: 'block',
+                            }}
+                        />
+                    </Tabs.Panel>
+                </Tabs>
             </Modal>
         </>
     );
