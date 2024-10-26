@@ -1,12 +1,13 @@
 // src/data/dbdata.ts
-export interface Character {
+export type Character = {
     name: string;
     path: string;
-    type: string;
-    characters?: { name: string; path: string }[];
-}
+    characters?: Character[];
+    type?: string; // Make this optional
+};
 
-const ImgCharacterData = [
+// Use the Character type for the ImgCharacterData array
+const ImgCharacterData: Character[] = [
     { name: 'Goku', path: 'src/assets/img/PCard_FavoriteCh/character001.png', },
     {
         name: 'Goku (Z-MID)', path: 'src/assets/img/PCard_FavoriteCh/character002.png',
