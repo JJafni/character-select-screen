@@ -1,5 +1,13 @@
 // src/data/dbdata.ts
-const ImgCharacterData = [
+export type Character = {
+    name: string;
+    path: string;
+    characters?: Character[];
+    type?: string; // Make this optional
+};
+
+// Use the Character type for the ImgCharacterData array
+const ImgCharacterData: Character[] = [
     { name: 'Goku', path: 'src/assets/img/PCard_FavoriteCh/character001.png', },
     {
         name: 'Goku (Z-MID)', path: 'src/assets/img/PCard_FavoriteCh/character002.png',
@@ -245,7 +253,7 @@ const ImgCharacterData = [
         ]
     },
 
-    { name: 'Kid Buu', path: 'src/assets/img/PCard_FavoriteCh/character093.png', type: 'kid',},
+    { name: 'Kid Buu', path: 'src/assets/img/PCard_FavoriteCh/character093.png', type: 'kid', },
     { name: 'Mr. Satan', path: 'src/assets/img/PCard_FavoriteCh/character094.png', },
     { name: 'Chiaotzu', path: 'src/assets/img/PCard_FavoriteCh/character095.png', type: 'kid', },
     { name: 'Yajirobe', path: 'src/assets/img/PCard_FavoriteCh/character096.png', },
