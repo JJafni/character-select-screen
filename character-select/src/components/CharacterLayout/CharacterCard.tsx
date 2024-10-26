@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Box, Text, Image, Modal, Tabs } from '@mantine/core';
+import { Box, Text, Image, Modal, Tabs, FloatingIndicator } from '@mantine/core';
+import styles from './Card.module.css';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -18,8 +19,14 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
     const [ref, inView] = useInView({ threshold: 0.2 });
     const [modalOpen, setModalOpen] = useState(false);
     const [isFadingOut, setIsFadingOut] = useState(false);
-
+    const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
+    const [controlsRefs, setControlsRefs] = useState<Record<string, HTMLButtonElement | null>>({});
     const transformStyle = char.type === 'kid' ? 'scale(1.8) translateY(10%)' : 'scale(1.8) translateY(20%)';
+
+    const setControlRef = (val: string) => (node: HTMLButtonElement) => {
+        controlsRefs[val] = node;
+        setControlsRefs(controlsRefs);
+    };
 
     useEffect(() => {
         let timer: NodeJS.Timeout | undefined;
@@ -139,31 +146,93 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
                 onClose={handleCloseModal}
                 withCloseButton
                 size="80%"
-                transitionProps={{ transition: 'fade', duration: 300 }}
+                transitionProps={{
+                    transition: 'fade-down', // Change to fade-down transition
+                    duration: 300,
+                }}            >
+        <Tabs
+      variant="none"
+      value={currentFormIndex.toString()}
+      onChange={(value) => setCurrentFormIndex(parseInt(value))}
+    >
+      <Tabs.List ref={setRootRef} className={styles.list}>
+        {char.characters &&
+          char.characters.map((character, index) => (
+            <Tabs.Tab
+              key={index}
+              value={index.toString()}
+              ref={setControlRef(index.toString())}
+              className={styles.tab}
             >
-                <Tabs value={currentFormIndex.toString()} onChange={(value) => setCurrentFormIndex(parseInt(value))}>
-                    <Tabs.List>
-                        {char.characters &&
-                            char.characters.map((character, index) => (
-                                <Tabs.Tab key={index} value={index.toString()}>
-                                    {character.name}
-                                </Tabs.Tab>
-                            ))}
-                    </Tabs.List>
+              {character.name}
+            </Tabs.Tab>
+          ))}
 
-                    <Tabs.Panel value={currentFormIndex.toString()} pt="xs">
-                        <Image
-                            src={char.characters ? char.characters[currentFormIndex]?.path : char.path}
-                            alt={char.characters ? char.characters[currentFormIndex]?.name : char.name}
-                            fit="contain"
-                            style={{
-                                maxHeight: '80vh',
-                                margin: 'auto',
-                                display: 'block',
-                            }}
-                        />
-                    </Tabs.Panel>
-                </Tabs>
+        <FloatingIndicator
+          target={controlsRefs[currentFormIndex.toString()]}
+          parent={rootRef}
+          className={styles.indicator}
+        />
+      </Tabs.List>
+
+      <Tabs.Panel value={currentFormIndex.toString()} pt="xs">
+        <motion.div
+          key={currentFormIndex}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <Box
+            style={{
+              height: '80vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              overflow: 'hidden',
+            }}
+          >
+            <Box
+              style={{
+                width: '50%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden',
+              }}
+            >
+              <Image
+                src={char.characters ? char.characters[currentFormIndex]?.path : char.path}
+                alt={char.characters ? char.characters[currentFormIndex]?.name : char.name}
+                fit="cover"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  maxHeight: '80vh',
+                }}
+              />
+            </Box>
+            <Box
+              style={{
+                width: '50%',
+                padding: '20px',
+                color: 'white',
+              }}
+            >
+              <Text fontSize="xl" fontWeight="bold">
+                Character Information
+              </Text>
+              <Text fontSize="md">
+                {char.characters
+                  ? char.characters[currentFormIndex]?.description
+                  : char.description}
+              </Text>
+            </Box>
+          </Box>
+        </motion.div>
+      </Tabs.Panel>
+    </Tabs>
             </Modal>
         </>
     );
