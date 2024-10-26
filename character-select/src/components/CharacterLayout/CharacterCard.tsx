@@ -8,7 +8,7 @@ interface CharacterCardProps {
         name: string;
         path: string;
         type: string;
-        characters?: { name: string; path: string }[]; // Ensure this is defined for multi-form characters
+        characters?: { name: string; path: string }[];
     };
 }
 
@@ -17,6 +17,7 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
     const [currentFormIndex, setCurrentFormIndex] = useState(0);
     const [ref, inView] = useInView({ threshold: 0.2 });
     const [modalOpen, setModalOpen] = useState(false);
+    const [isFadingOut, setIsFadingOut] = useState(false);
 
     const transformStyle = char.type === 'kid' ? 'scale(1.8) translateY(10%)' : 'scale(1.8) translateY(20%)';
 
@@ -39,6 +40,20 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
         return () => clearInterval(timer);
     }, [isHovered, char.characters]);
 
+    const handleImageClick = () => {
+        setIsFadingOut(true); // Trigger fade-out
+        setTimeout(() => {
+            setModalOpen(true); // Open modal after delay
+        }, 300);
+    };
+
+    const handleCloseModal = () => {
+        setModalOpen(false);
+        setTimeout(() => {
+            setIsFadingOut(false); // Reset fade-out state after the modal closes
+        }, 300);
+    };
+
     return (
         <>
             <Box
@@ -60,10 +75,19 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <Text size="lg" mt="sm" style={{ marginLeft: '10px' }}>
-                    {isHovered && char.characters ? char.characters[currentFormIndex]?.name : char.name}
-                </Text>
+                {/* Animate the text element */}
+                <motion.div
+                    initial={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: isFadingOut ? 0 : 1, y: isFadingOut ? 20 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ pointerEvents: isFadingOut ? 'none' : 'auto', marginLeft: '10px' }}
+                >
+                    <Text size="lg" mt="sm">
+                        {isHovered && char.characters ? char.characters[currentFormIndex]?.name : char.name}
+                    </Text>
+                </motion.div>
 
+                {/* Animate the image element */}
                 <motion.div
                     ref={ref}
                     initial={{ opacity: 0, y: 50 }}
@@ -77,46 +101,54 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <Image
-                            src={char.characters ? char.characters[currentFormIndex]?.path : char.path}
-                            alt={char.characters ? char.characters[currentFormIndex]?.name : char.name}
-                            fit="contain"
-                            style={{
-                                transform: transformStyle,
-                                transformOrigin: 'center',
-                                width: 'auto',
-                                height: 'auto',
-                                maxHeight: '400px',
-                                transition: 'transform 0.3s ease',
-                                cursor: 'pointer', // Indicate that it's clickable
-                            }}
-                            onClick={() => setModalOpen(true)} // Open modal on click
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform += ' translateY(-10px)';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.transform = transformStyle;
-                            }}
-                        />
+                        <motion.div
+                            initial={{ opacity: 1, y: 0 }}
+                            animate={{ opacity: isFadingOut ? 0 : 1, y: isFadingOut ? 20 : 0 }}
+                            transition={{ duration: 0.3 }}
+                            style={{ pointerEvents: isFadingOut ? 'none' : 'auto' }}
+                        >
+                            <Image
+                                src={char.characters ? char.characters[currentFormIndex]?.path : char.path}
+                                alt={char.characters ? char.characters[currentFormIndex]?.name : char.name}
+                                fit="contain"
+                                style={{
+                                    transform: transformStyle,
+                                    transformOrigin: 'center',
+                                    width: 'auto',
+                                    height: 'auto',
+                                    maxHeight: '400px',
+                                    transition: 'transform 0.3s ease',
+                                    cursor: 'pointer',
+                                }}
+                                onClick={handleImageClick}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.transform += ' translateY(-10px)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = transformStyle;
+                                }}
+                            />
+                        </motion.div>
                     </motion.div>
                 </motion.div>
             </Box>
 
-            {/* Modal for displaying the image with tabs */}
+            {/* Modal with Tabs */}
             <Modal
                 opened={modalOpen}
-                onClose={() => setModalOpen(false)}
+                onClose={handleCloseModal}
                 withCloseButton
-                size="lg"
-                transitionProps={{ transition: 'fade', duration: 300 }} // Use transitionProps instead
+                size="80%"
+                transitionProps={{ transition: 'fade', duration: 300 }}
             >
                 <Tabs value={currentFormIndex.toString()} onChange={(value) => setCurrentFormIndex(parseInt(value))}>
                     <Tabs.List>
-                        {char.characters && char.characters.map((character, index) => (
-                            <Tabs.Tab key={index} value={index.toString()}>
-                                {character.name}
-                            </Tabs.Tab>
-                        ))}
+                        {char.characters &&
+                            char.characters.map((character, index) => (
+                                <Tabs.Tab key={index} value={index.toString()}>
+                                    {character.name}
+                                </Tabs.Tab>
+                            ))}
                     </Tabs.List>
 
                     <Tabs.Panel value={currentFormIndex.toString()} pt="xs">

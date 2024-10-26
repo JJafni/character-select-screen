@@ -5,7 +5,7 @@ import { Character } from '../../data/dbdata'; // Import the Character type
 interface CharacterGridProps {
     cols: number;
     character: Character[]; // Define that character is an array of Character objects
-  }
+}
 
 const CharacterGrid = ({ cols, character }: CharacterGridProps) => {
     return (
