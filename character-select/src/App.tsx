@@ -5,6 +5,7 @@ import { useMediaQuery, } from '@mantine/hooks';
 import { BoxMain } from './components';
 import CharacterGrid from './components/CharacterLayout/CharacterGrid';
 import characterData from './data/dbdata';
+import { DockSaga } from './components';
 
 
 const App = () => {
@@ -14,11 +15,10 @@ const App = () => {
 
 
 
-
-
   return (
     <MantineProvider defaultColorScheme="dark">
-      
+      <DockSaga />
+
       <BoxMain>
         <CharacterGrid cols={cols} character={characterData} />
 
