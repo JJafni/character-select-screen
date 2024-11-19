@@ -17,12 +17,13 @@ const App = () => {
 
   return (
     <MantineProvider defaultColorScheme="dark">
-      <DockSaga />
 
       <BoxMain>
         <CharacterGrid cols={cols} character={characterData} />
 
       </BoxMain>
+      <DockSaga />
+
     </MantineProvider>
   );
 };
