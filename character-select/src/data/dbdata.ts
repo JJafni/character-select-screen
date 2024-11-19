@@ -3,21 +3,22 @@ export type Character = {
     name: string;
     path: string;
     characters?: Character[];
-    type?: string; // Make this optional
+    type?: string;
+    fighter?: string;
 };
 
 // Use the Character type for the ImgCharacterData array
 const ImgCharacterData: Character[] = [
-    { name: 'Goku', path: 'src/assets/img/PCard_FavoriteCh/character001.png', },
+    { name: 'Goku', path: 'src/assets/img/PCard_FavoriteCh/character001.png', fighter: 'Z Fighter' },
     {
-        name: 'Goku (Z-MID)', path: 'src/assets/img/PCard_FavoriteCh/character002.png',
+        name: 'Goku (Z-MID)', path: 'src/assets/img/PCard_FavoriteCh/character002.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Goku (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character002.png', },
             { name: 'Goku (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character003.png', },
         ]
     },
     {
-        name: 'Goku (Z-END)', path: 'src/assets/img/PCard_FavoriteCh/character004.png',
+        name: 'Goku (Z-END)', path: 'src/assets/img/PCard_FavoriteCh/character004.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Goku (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character004.png', },
             { name: 'Goku (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character005.png', },
@@ -26,7 +27,7 @@ const ImgCharacterData: Character[] = [
         ]
     },
     {
-        name: 'Goku (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character009.png',
+        name: 'Goku (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character009.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Goku (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character009.png', },
             { name: 'Goku (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character010.png', },
@@ -37,7 +38,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character012.png',
+        name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character012.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Goku (ULTRA INSTINCT -SIGN-)', path: 'src/assets/img/PCard_FavoriteCh/character012.png', },
             { name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character013.png', },
@@ -45,7 +46,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Goku (GT)', path: 'src/assets/img/PCard_FavoriteCh/character015.png', type: 'kid',
+        name: 'Goku (GT)', path: 'src/assets/img/PCard_FavoriteCh/character015.png', type: 'kid', fighter: 'Z Fighter',
         characters: [
 
             { name: 'Goku (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character015.png', },
@@ -54,33 +55,33 @@ const ImgCharacterData: Character[] = [
             { name: 'Goku (SUPER SAIYAN 4)', path: 'src/assets/img/PCard_FavoriteCh/character008.png', },
         ]
     },
-    { name: 'Goku (TEEN)', path: 'src/assets/img/PCard_FavoriteCh/character018.png', type: 'kid', },
+    { name: 'Goku (TEEN)', path: 'src/assets/img/PCard_FavoriteCh/character018.png', type: 'kid', fighter: 'Z Fighter' },
     {
-        name: 'Vegeta (Z-Scouter)', path: 'src/assets/img/PCard_FavoriteCh/character019.png',
+        name: 'Vegeta (Z-Scouter)', path: 'src/assets/img/PCard_FavoriteCh/character019.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Vegeta (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character019.png' },
             { name: 'Vegeta (GREAT APE)', path: 'src/assets/img/PCard_FavoriteCh/character032.png', },
 
         ]
     }, {
-        name: 'Vegeta (Z-EARLY)', path: 'src/assets/img/PCard_FavoriteCh/character020.png',
+        name: 'Vegeta (Z-EARLY)', path: 'src/assets/img/PCard_FavoriteCh/character020.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Vegeta (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character020.png', },
             { name: 'Vegeta (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character021.png', },
         ]
     },
     {
-        name: 'Vegeta (Z-END)', path: 'src/assets/img/PCard_FavoriteCh/character022.png',
+        name: 'Vegeta (Z-END)', path: 'src/assets/img/PCard_FavoriteCh/character022.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Vegeta (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character022.png', },
             { name: 'Vegeta (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character023.png', },
             { name: 'Vegeta (SUPER SAIYAN 2)', path: 'src/assets/img/PCard_FavoriteCh/character024.png', },
         ]
     },
-    { name: 'Majin Vegeta', path: 'src/assets/img/PCard_FavoriteCh/character025.png', },
-    { name: 'Vegeta (SUPER SAIYAN 4)', path: 'src/assets/img/PCard_FavoriteCh/character026.png', },
+    { name: 'Majin Vegeta', path: 'src/assets/img/PCard_FavoriteCh/character025.png', fighter: 'Z Fighter' },
+    { name: 'Vegeta (SUPER SAIYAN 4)', path: 'src/assets/img/PCard_FavoriteCh/character026.png', fighter: 'Z Fighter' },
     {
-        name: 'Vegeta (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character027.png',
+        name: 'Vegeta (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character027.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Vegeta (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character027.png', },
             { name: 'Vegeta (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character028.png', },
@@ -89,10 +90,10 @@ const ImgCharacterData: Character[] = [
 
         ]
     },
-    { name: 'Super Vegeta', path: 'src/assets/img/PCard_FavoriteCh/character030.png', },
-    { name: 'Gohan (KID)', path: 'src/assets/img/PCard_FavoriteCh/character033.png', type: 'kid', },
+    { name: 'Super Vegeta', path: 'src/assets/img/PCard_FavoriteCh/character030.png', fighter: 'Z Fighter' },
+    { name: 'Gohan (KID)', path: 'src/assets/img/PCard_FavoriteCh/character033.png', type: 'kid', fighter: 'Z Fighter' },
     {
-        name: 'Gohan (TEEN)', path: 'src/assets/img/PCard_FavoriteCh/character034.png', type: 'kid',
+        name: 'Gohan (TEEN)', path: 'src/assets/img/PCard_FavoriteCh/character034.png', type: 'kid', fighter: 'Z Fighter',
         characters: [
             { name: 'Gohan (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character034.png' },
             { name: 'Gohan (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character035.png' },
@@ -100,7 +101,7 @@ const ImgCharacterData: Character[] = [
         ]
     },
     {
-        name: 'Gohan (ADULT)', path: 'src/assets/img/PCard_FavoriteCh/character037.png',
+        name: 'Gohan (ADULT)', path: 'src/assets/img/PCard_FavoriteCh/character037.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Gohan (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character037.png' },
             { name: 'Gohan (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character038.png' },
@@ -110,9 +111,9 @@ const ImgCharacterData: Character[] = [
         ]
     },
 
-    { name: 'Ultimate Gohan', path: 'src/assets/img/PCard_FavoriteCh/character041.png', },
+    { name: 'Ultimate Gohan', path: 'src/assets/img/PCard_FavoriteCh/character041.png', fighter: 'Z Fighter', },
     {
-        name: 'Future Gohan', path: 'src/assets/img/PCard_FavoriteCh/character042.png',
+        name: 'Future Gohan', path: 'src/assets/img/PCard_FavoriteCh/character042.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Future Gohan (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character042.png' },
             { name: 'Future Gohan (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character043.png' },
@@ -121,7 +122,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Piccolo', path: 'src/assets/img/PCard_FavoriteCh/character044.png',
+        name: 'Piccolo', path: 'src/assets/img/PCard_FavoriteCh/character044.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Piccolo (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character044.png' },
             { name: 'Piccolo (FUSED WITH KAMI)', path: 'src/assets/img/PCard_FavoriteCh/character045.png' },
@@ -129,11 +130,11 @@ const ImgCharacterData: Character[] = [
     },
 
     { name: 'Nail', path: 'src/assets/img/PCard_FavoriteCh/character046.png', },
-    { name: 'Krillin', path: 'src/assets/img/PCard_FavoriteCh/character047.png', },
-    { name: 'Yamcha', path: 'src/assets/img/PCard_FavoriteCh/character048.png', },
-    { name: 'Tien', path: 'src/assets/img/PCard_FavoriteCh/character049.png', },
+    { name: 'Krillin', path: 'src/assets/img/PCard_FavoriteCh/character047.png', fighter: 'Z Fighter' },
+    { name: 'Yamcha', path: 'src/assets/img/PCard_FavoriteCh/character048.png', fighter: 'Z Fighter' },
+    { name: 'Tien', path: 'src/assets/img/PCard_FavoriteCh/character049.png', fighter: 'Z Fighter' },
     {
-        name: 'Trunks (Sword)', path: 'src/assets/img/PCard_FavoriteCh/character050.png',
+        name: 'Trunks (Sword)', path: 'src/assets/img/PCard_FavoriteCh/character050.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Trunks (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character050.png' },
             { name: 'Trunks (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character051.png' },
@@ -141,7 +142,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Trunks (Melee)', path: 'src/assets/img/PCard_FavoriteCh/character052.png',
+        name: 'Trunks (Melee)', path: 'src/assets/img/PCard_FavoriteCh/character052.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Trunks (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character052.png' },
             { name: 'Trunks (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character053.png' },
@@ -150,7 +151,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Future Trunks', path: 'src/assets/img/PCard_FavoriteCh/character054.png',
+        name: 'Future Trunks', path: 'src/assets/img/PCard_FavoriteCh/character054.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Future Trunks (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character054.png' },
             { name: 'Future Trunks (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character055.png' },
@@ -158,7 +159,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Trunks (KID)', path: 'src/assets/img/PCard_FavoriteCh/character057.png', type: 'kid',
+        name: 'Trunks (KID)', path: 'src/assets/img/PCard_FavoriteCh/character057.png', type: 'kid', fighter: 'Z Fighter',
         characters: [
             { name: 'Kid Trunks (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character057.png' },
             { name: 'Kid Trunks (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character058.png' },
@@ -166,7 +167,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Goten', path: 'src/assets/img/PCard_FavoriteCh/character059.png', type: 'kid',
+        name: 'Goten', path: 'src/assets/img/PCard_FavoriteCh/character059.png', type: 'kid', fighter: 'Z Fighter',
         characters: [
             { name: 'Goten (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character059.png' },
             { name: 'Goten (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character060.png' },
@@ -174,7 +175,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Vegito', path: 'src/assets/img/PCard_FavoriteCh/character061.png',
+        name: 'Vegito', path: 'src/assets/img/PCard_FavoriteCh/character061.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Vegito (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character061.png' },
             { name: 'Vegito (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character062.png' },
@@ -183,7 +184,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Gogeta (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character064.png',
+        name: 'Gogeta (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character064.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Gogeta (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character064.png' },
             { name: 'Gogeta (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character065.png' },
@@ -191,10 +192,10 @@ const ImgCharacterData: Character[] = [
         ]
     },
 
-    { name: 'Gogeta (SUPER SAIYAN 4)', path: 'src/assets/img/PCard_FavoriteCh/character066.png', },
-    { name: 'Super Gogeta (Z)', path: 'src/assets/img/PCard_FavoriteCh/character068.png', },
+    { name: 'Gogeta (SUPER SAIYAN 4)', path: 'src/assets/img/PCard_FavoriteCh/character066.png', fighter: 'Z Fighter' },
+    { name: 'Super Gogeta (Z)', path: 'src/assets/img/PCard_FavoriteCh/character068.png', fighter: 'Z Fighter' },
     {
-        name: 'Gotenks', path: 'src/assets/img/PCard_FavoriteCh/character069.png', type: 'kid',
+        name: 'Gotenks', path: 'src/assets/img/PCard_FavoriteCh/character069.png', type: 'kid', fighter: 'Z Fighter',
         characters: [
             { name: 'Gotenks (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character069.png' },
             { name: 'Gotenks (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character070.png' },
@@ -204,7 +205,7 @@ const ImgCharacterData: Character[] = [
 
     { name: 'Videl', path: 'src/assets/img/PCard_FavoriteCh/character072.png', },
     {
-        name: 'Master Roshi', path: 'src/assets/img/PCard_FavoriteCh/character073.png',
+        name: 'Master Roshi', path: 'src/assets/img/PCard_FavoriteCh/character073.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Master Roshi (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character073.png' },
             { name: 'Master Roshi (MAX POWER)', path: 'src/assets/img/PCard_FavoriteCh/character074.png' },
@@ -255,11 +256,11 @@ const ImgCharacterData: Character[] = [
 
     { name: 'Kid Buu', path: 'src/assets/img/PCard_FavoriteCh/character093.png', type: 'kid', },
     { name: 'Mr. Satan', path: 'src/assets/img/PCard_FavoriteCh/character094.png', },
-    { name: 'Chiaotzu', path: 'src/assets/img/PCard_FavoriteCh/character095.png', type: 'kid', },
-    { name: 'Yajirobe', path: 'src/assets/img/PCard_FavoriteCh/character096.png', },
-    { name: 'Pan (GT)', path: 'src/assets/img/PCard_FavoriteCh/character097.png', },
+    { name: 'Chiaotzu', path: 'src/assets/img/PCard_FavoriteCh/character095.png', type: 'kid', fighter: 'Z Fighter' },
+    { name: 'Yajirobe', path: 'src/assets/img/PCard_FavoriteCh/character096.png', fighter: 'Z Fighter' },
+    { name: 'Pan (GT)', path: 'src/assets/img/PCard_FavoriteCh/character097.png', fighter: 'Z Fighter' },
     {
-        name: 'Uub', path: 'src/assets/img/PCard_FavoriteCh/character098.png',
+        name: 'Uub', path: 'src/assets/img/PCard_FavoriteCh/character098.png', fighter: 'Z Fighter',
         characters: [
             { name: 'Uub (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character098.png' },
             { name: 'Majuub', path: 'src/assets/img/PCard_FavoriteCh/character099.png' },
@@ -445,7 +446,7 @@ const ImgCharacterData: Character[] = [
     { name: 'Kakunsa', path: 'src/assets/img/PCard_FavoriteCh/character179.png', },
     { name: 'Roasie', path: 'src/assets/img/PCard_FavoriteCh/character180.png', },
     { name: 'Anilaza', path: 'src/assets/img/PCard_FavoriteCh/character181.png', },
-    { name: 'Goku (MINI)', path: 'src/assets/img/PCard_FavoriteCh/character182.png', type: 'kid', },
+    { name: 'Goku (MINI)', path: 'src/assets/img/PCard_FavoriteCh/character182.png', type: 'kid', fighter: 'Z Fighter' },
 ];
 
 export default ImgCharacterData;
