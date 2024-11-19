@@ -10,6 +10,7 @@ interface CharacterCardProps {
     path: string;
     type: string;
     characters?: { name: string; path: string }[];
+    fighter?: string;
   };
 }
 
@@ -22,6 +23,7 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
   const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
   const [controlsRefs, setControlsRefs] = useState<Record<string, HTMLButtonElement | null>>({});
   const transformStyle = char.type === 'kid' ? 'scale(1.8) translateY(10%)' : 'scale(1.8) translateY(20%)';
+  const fightingStyle = char.fighter === 'Z Fighter' ? 'visible' : 'hidden';
 
   const setControlRef = (val: string) => (node: HTMLButtonElement) => {
     controlsRefs[val] = node;
@@ -78,6 +80,7 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
           clipPath: 'polygon(0 12%, 100% 0, 100% 71%, 0 100%)',
           boxSizing: 'border-box',
           transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
+          visibility: fightingStyle,  // Add this line
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
