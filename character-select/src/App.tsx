@@ -6,6 +6,9 @@ import { BoxMain } from './components';
 import CharacterGrid from './components/CharacterLayout/CharacterGrid';
 import characterData from './data/dbdata';
 import { DockSaga } from './components';
+import { BentoDemo } from './components/Layout';
+import { ThemeProvider } from "@/components/theme-provider"
+
 
 
 const App = () => {
@@ -17,13 +20,15 @@ const App = () => {
 
   return (
     <MantineProvider defaultColorScheme="dark">
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
 
-      <BoxMain>
-        <CharacterGrid cols={cols} character={characterData} />
+        <BentoDemo />
+        <BoxMain>
+          <CharacterGrid cols={cols} character={characterData} />
 
-      </BoxMain>
-      <DockSaga />
-
+        </BoxMain>
+        <DockSaga />
+      </ThemeProvider>
     </MantineProvider>
   );
 };
