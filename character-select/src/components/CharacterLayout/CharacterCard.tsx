@@ -77,7 +77,7 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
           textAlign: 'center',
           color: 'white',
           paddingLeft: '50px',
-          // clipPath: 'polygon(0 12%, 100% 0, 100% 71%, 0 100%)',
+          clipPath: 'polygon(0 12%, 100% 0, 100% 71%, 0 100%)',
           boxSizing: 'border-box',
           transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
           // visibility: fightingStyle,  // Add this line
