@@ -13,7 +13,7 @@ interface CharacterGridProps {
     characters: Character[]; // Define that characters is an array of Character objects
 }
 
-const CharacterGrid = ({ cols = 3, characters }: CharacterGridProps) => {
+const CharacterGrid = ({ cols = 4, characters }: CharacterGridProps) => {
     return (
         <BentoGrid className={`grid-cols-${cols} gap-4 p-4`}>
 
@@ -35,20 +35,31 @@ const CharacterGrid = ({ cols = 3, characters }: CharacterGridProps) => {
                                 />
                                 <motion.div
                                     ref={ref}
-                                    className="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:contrast-[1.2]"
-                                    style={{ backgroundImage: `url(${char.path})` }}
+                                    className="absolute inset-0 bg-no-repeat transition-all duration-300 group-hover:contrast-[1.2]"
+                                    style={{
+                                        backgroundImage: `url(${char.path})`,
+                                        backgroundSize: char.valuation === 'Legendary Warrior' ? 'cover' : '1000px',
+                                        // backgroundPosition: '', // Ensures the top part of the image is always visible
+                                        backgroundPosition: char.type === 'kid' 
+                                        ? 'center left 30%' 
+                                        : char.valuation === 'Legendary Warrior' 
+                                            ? 'top center' // Custom position for legendary warriors
+                                            : 'top 10% right 65%',
+                                    
+                                    }}
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{
                                         opacity: inView ? 1 : 0,
-                                        y: inView ? 0 : 50
+                                        y: inView ? 0 : 50, // No conditional position shifts for simplicity
                                     }}
                                     transition={{
                                         opacity: { duration: 0.5 },
-                                        y: { duration: 0.5, stiffness: 200, damping: 25 }
+                                        y: { duration: 0.5, stiffness: 200, damping: 25 },
                                     }}
                                 >
-
                                 </motion.div>
+
+
                             </>
                         }
                         Icon={() => <ArrowRightIcon className="h-12 w-12" />}

@@ -13,7 +13,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const App = () => {
   const isSmallScreen = useMediaQuery('(max-width: 800px)');
   const isMediumScreen = useMediaQuery('(max-width: 1300px)');
-  const cols = isSmallScreen ? 1 : isMediumScreen ? 2 : 3;
+  const cols = isSmallScreen ? 1 : isMediumScreen ? 2 : 4;
 
 
 
