@@ -5,7 +5,6 @@ import { motion } from "framer-motion"; // Import motion
 import { useInView } from 'react-intersection-observer';
 import { cn } from "@/lib/utils";
 import { DotPattern } from "../ui/dot-pattern";
-import { SparklesCore } from "../ui/sparkles";
 
 
 
@@ -25,7 +24,7 @@ const CharacterGrid = ({ cols = 3, characters }: CharacterGridProps) => {
                     <BentoCard
                         key={char.name}
                         name={char.name}
-                        className="col-span-1 relative overflow-hidden group" // Added 'group' for hover targeting
+                        className="col-span-1 row-span-2 relative overflow-hidden group" // Added 'row-span-2' for vertical spanning
                         background={
                             <>
                                 <DotPattern

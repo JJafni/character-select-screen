@@ -5,6 +5,7 @@ export type Character = {
     characters?: Character[];
     type?: string;
     fighter?: string;
+    specialty?: string;
 };
 
 // Use the Character type for the ImgCharacterData array

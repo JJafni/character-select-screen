@@ -19,10 +19,8 @@ const App = () => {
 
   return (
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-
         <BoxMain>
           <CharacterGrid cols={cols} characters={characterData} />
-
         </BoxMain>
         <DockSaga />
       </ThemeProvider>
