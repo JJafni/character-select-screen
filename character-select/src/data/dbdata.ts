@@ -5,7 +5,7 @@ export type Character = {
     characters?: Character[];
     type?: string;
     fighter?: string;
-    specialty?: string;
+    valuation?: string;
 };
 
 // Use the Character type for the ImgCharacterData array
@@ -39,7 +39,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character012.png', fighter: 'Z Fighter',
+        name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character012.png', fighter: 'Z Fighter', valuation: 'Legendary Warrior',
         characters: [
             { name: 'Goku (ULTRA INSTINCT -SIGN-)', path: 'src/assets/img/PCard_FavoriteCh/character012.png', },
             { name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character013.png', },
@@ -176,7 +176,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Vegito', path: 'src/assets/img/PCard_FavoriteCh/character061.png', fighter: 'Z Fighter',
+        name: 'Vegito', path: 'src/assets/img/PCard_FavoriteCh/character061.png', fighter: 'Z Fighter', valuation: 'Legendary Warrior',
         characters: [
             { name: 'Vegito (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character061.png' },
             { name: 'Vegito (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character062.png' },
@@ -185,7 +185,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Gogeta (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character064.png', fighter: 'Z Fighter',
+        name: 'Gogeta (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character064.png', fighter: 'Z Fighter', valuation: 'Legendary Warrior',
         characters: [
             { name: 'Gogeta (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character064.png' },
             { name: 'Gogeta (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character065.png' },
@@ -193,8 +193,8 @@ const ImgCharacterData: Character[] = [
         ]
     },
 
-    { name: 'Gogeta (SUPER SAIYAN 4)', path: 'src/assets/img/PCard_FavoriteCh/character066.png', fighter: 'Z Fighter' },
-    { name: 'Super Gogeta (Z)', path: 'src/assets/img/PCard_FavoriteCh/character068.png', fighter: 'Z Fighter' },
+    { name: 'Gogeta (SUPER SAIYAN 4)', path: 'src/assets/img/PCard_FavoriteCh/character066.png', fighter: 'Z Fighter', valuation: 'Legendary Warrior', },
+    { name: 'Super Gogeta (Z)', path: 'src/assets/img/PCard_FavoriteCh/character068.png', fighter: 'Z Fighter', valuation: 'Legendary Warrior', },
     {
         name: 'Gotenks', path: 'src/assets/img/PCard_FavoriteCh/character069.png', type: 'kid', fighter: 'Z Fighter',
         characters: [
@@ -298,7 +298,7 @@ const ImgCharacterData: Character[] = [
     { name: 'Dabura', path: 'src/assets/img/PCard_FavoriteCh/character121.png', },
     { name: 'Frieza Force Soldier', path: 'src/assets/img/PCard_FavoriteCh/character122.png', },
     {
-        name: 'Broly (Z)', path: 'src/assets/img/PCard_FavoriteCh/character123.png',
+        name: 'Broly (Z)', path: 'src/assets/img/PCard_FavoriteCh/character123.png', valuation: 'Legendary Warrior',
         characters: [
             { name: 'Broly (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character123.png' },
             { name: 'Broly (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character124.png' },
@@ -307,7 +307,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Broly (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character126.png',
+        name: 'Broly (SUPER)', path: 'src/assets/img/PCard_FavoriteCh/character126.png', valuation: 'Legendary Warrior',
         characters: [
             { name: 'Broly (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character126.png' },
             { name: 'Broly (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character127.png' },
@@ -417,7 +417,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Kefla', path: 'src/assets/img/PCard_FavoriteCh/character169.png',
+        name: 'Kefla', path: 'src/assets/img/PCard_FavoriteCh/character169.png', valuation: 'Legendary Warrior',
         characters: [
             { name: 'Kefla (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character169.png' },
             { name: 'Kefla (SUPER SAIYAN)', path: 'src/assets/img/PCard_FavoriteCh/character170.png' },
@@ -426,7 +426,7 @@ const ImgCharacterData: Character[] = [
     },
 
     {
-        name: 'Jiren', path: 'src/assets/img/PCard_FavoriteCh/character172.png',
+        name: 'Jiren', path: 'src/assets/img/PCard_FavoriteCh/character172.png', valuation: 'Legendary Warrior',
         characters: [
             { name: 'Jiren (BASE)', path: 'src/assets/img/PCard_FavoriteCh/character172.png' },
             { name: 'Jiren (FULL POWER)', path: 'src/assets/img/PCard_FavoriteCh/character173.png' },

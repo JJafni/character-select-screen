@@ -30,6 +30,8 @@ const BentoCard = ({
   description,
   href,
   cta,
+  valuation, // Added valuation prop
+
 }: {
   name: string;
   className: string;
@@ -38,15 +40,17 @@ const BentoCard = ({
   description: string;
   href: string;
   cta: string;
+  valuation: string;
 }) => (
   <div
     key={name}
     className={cn(
       "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl",
-      // light styles
       "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-      // dark styles
-      "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#0066ff4d_inset]",
+      "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)]",
+      valuation === "Legendary Warrior" 
+        ? "dark:[box-shadow:0_-20px_80px_-20px_#ffff004d_inset]" 
+        : "dark:[box-shadow:0_-20px_80px_-20px_#0066ff4d_inset]",
       className,
     )}
   >

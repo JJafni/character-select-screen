@@ -23,8 +23,9 @@ const CharacterGrid = ({ cols = 3, characters }: CharacterGridProps) => {
                 return (
                     <BentoCard
                         key={char.name}
-                        name={char.name}
-                        className="col-span-1 row-span-2 relative overflow-hidden group" // Added 'row-span-2' for vertical spanning
+                        name={char.name ?? "Unknown Name"}
+                        valuation={char.valuation ?? "Unknown Valuation"}
+                        className={`col-span-1 ${char.valuation === 'Legendary Warrior' ? 'row-span-2' : 'row-span-1'} relative overflow-hidden group`}
                         background={
                             <>
                                 <DotPattern
