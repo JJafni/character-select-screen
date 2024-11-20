@@ -18,7 +18,6 @@ const App = () => {
 
 
   return (
-    <MantineProvider defaultColorScheme="dark">
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
 
         <BoxMain>
@@ -27,7 +26,6 @@ const App = () => {
         </BoxMain>
         <DockSaga />
       </ThemeProvider>
-    </MantineProvider>
   );
 };
 
