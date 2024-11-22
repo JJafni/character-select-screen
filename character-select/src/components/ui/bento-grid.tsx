@@ -31,7 +31,7 @@ const BentoCard = ({
   href,
   cta,
   valuation, // Added valuation prop
-
+  onClick,
 }: {
   name: string;
   className: string;
@@ -41,6 +41,7 @@ const BentoCard = ({
   href: string;
   cta: string;
   valuation: string;
+  onClick?: () => void;
 }) => (
   <div
     key={name}

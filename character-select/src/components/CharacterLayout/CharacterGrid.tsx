@@ -54,7 +54,7 @@ const CharacterGrid = ({ cols = 4, characters }: CharacterGridProps) => {
                                         backgroundImage: `url(${currentForm.path})`,
                                         backgroundSize: char.valuation === 'Legendary Warrior' ? 'cover' : '1000px',
                                         backgroundPosition: char.type === 'kid'
-                                            ? 'top 30% right 75%'
+                                            ? 'top 30% right 70%'
                                             : char.valuation === 'Legendary Warrior'
                                                 ? 'top center'
                                                 : 'top 10% right 65%',
@@ -92,7 +92,7 @@ const CharacterGrid = ({ cols = 4, characters }: CharacterGridProps) => {
                         }
                         Icon={() => <ArrowRightIcon className="h-12 w-12" />}
                         description={`Fighter Type: ${char.fighter || "Unknown"}`}
-                        href="#"
+                        href="https://www.youtube.com/"
                         cta="Learn More"
                     />
                 );
