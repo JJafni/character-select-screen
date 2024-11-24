@@ -11,6 +11,7 @@ const BoxMain: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 minHeight: '100vh',
                 width: '100vw',
                 overflowY: 'auto',
+                padding: '0 5%',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed',

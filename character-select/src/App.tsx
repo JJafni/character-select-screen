@@ -1,9 +1,9 @@
 import './App.css';
 import { useMediaQuery, } from '@mantine/hooks';
-import { BoxMain } from './components';
+import { BoxMain, DockSaga } from './components';
 import CharacterGrid from './components/CharacterLayout/CharacterGrid';
 import characterData from './data/dbdata';
-import { DockSaga } from './components';
+import { Hero } from './components';
 import { ThemeProvider } from "@/components/theme-provider"
 
 
@@ -16,12 +16,13 @@ const App = () => {
 
 
   return (
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <BoxMain>
-          <CharacterGrid cols={cols} characters={characterData} />
-        </BoxMain>
-        <DockSaga />
-      </ThemeProvider>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Hero />
+      <BoxMain>
+        <CharacterGrid cols={cols} characters={characterData} />
+      </BoxMain>
+      <DockSaga />
+    </ThemeProvider>
   );
 };
 
