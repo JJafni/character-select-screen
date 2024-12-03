@@ -1,5 +1,6 @@
 // src/data/dbdata.ts
 export type Character = {
+    id?: number;
     name: string;
     path: string;
     characters?: Character[];
@@ -13,7 +14,7 @@ export type Character = {
 // Use the Character type for the ImgCharacterData array
 const ImgCharacterData: Character[] = [
     {
-        name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character012.png', fighter: 'Z Fighter', valuation: 'Legendary Warrior', person: 'Goku',
+        id: 1, name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character012.png', fighter: 'Z Fighter', valuation: 'Legendary Warrior', person: 'Goku',
         characters: [
             { name: 'Goku (ULTRA INSTINCT -SIGN-)', path: 'src/assets/img/PCard_FavoriteCh/character012.png', },
             { name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character013.png', },

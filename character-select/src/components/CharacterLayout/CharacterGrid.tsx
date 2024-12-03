@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { DotPattern } from "../ui/dot-pattern";
 import { useState } from "react";
 
+
 interface CharacterGridProps {
     cols?: number; // Optional: cols can determine layout responsiveness
     characters: Character[]; // Define that characters is an array of Character objects
@@ -99,15 +100,17 @@ const CharacterGrid = ({ cols = 4, characters }: CharacterGridProps) => {
                     }
                     Icon={() => <ArrowRightIcon className="h-12 w-12" />}
                     description={`Fighter Type: ${char.fighter || "Unknown"}`}
-                    href="https://www.youtube.com/"
+                    href={`/characters/${char.id}`} // Pass the href to BentoCard
                     cta="Learn More"
+                    
                 />
             );
         });
     };
 
     return (
-        <>   {/* Section for Vegeta Characters */}
+        <>
+            {/* Section for Vegeta Characters */}
             {gokuCharacters.length > 0 && (
                 <>
                     <h2 className="text-2xl font-bold mb-4">Goku</h2>

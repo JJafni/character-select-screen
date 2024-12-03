@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Character } from "../../data/dbdata"; // Import the Character type
 import ImgCharacterData from "../../data/dbdata"; // Import the data array
 import { HyperTextDemo } from "./HyperText"; // Reintroducing your HyperTextDemo component
