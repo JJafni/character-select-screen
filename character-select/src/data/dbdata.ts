@@ -20,7 +20,7 @@ const ImgCharacterData: Character[] = [
             { name: 'Goku (ULTRA INSTINCT)', path: 'src/assets/img/PCard_FavoriteCh/character013.png', },
         ]
     },
-    { name: 'Goku', path: 'src/assets/img/PCard_FavoriteCh/character001.png', fighter: 'Z Fighter', person: 'Goku' },
+    { id: 2, name: 'Goku', path: 'src/assets/img/PCard_FavoriteCh/character001.png', fighter: 'Z Fighter', person: 'Goku' },
     {
         name: 'Goku (Z-MID)', path: 'src/assets/img/PCard_FavoriteCh/character002.png', fighter: 'Z Fighter', person: 'Goku',
         characters: [

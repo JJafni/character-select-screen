@@ -14,13 +14,16 @@ const CharacterDetails = () => {
         return <div>Character not found</div>;
     }
 
+    // Assuming `character.path` is relative to the `public` folder
+    const imagePath = `/${character.path}`;
+
     return (
         <div className="character-details">
             <h1>{character.name}</h1>
             <p>Valuation: {character.valuation}</p>
             <p>Type: {character.type}</p>
-            <p>Description: {character.description}</p> {/* Use a proper description field */}
-            <img src={character.image} alt={character.name} /> {/* Correct image source */}
+            <p>Description: {character.name}</p> {/* Use a proper description field */}
+            <img src={imagePath} alt={character.name} /> {/* Correct image source */}
         </div>
     );
 };
