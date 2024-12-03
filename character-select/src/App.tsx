@@ -25,7 +25,7 @@ const App = () => {
                 <BoxMain>
                   <CharacterGrid cols={cols} characters={characterData} />
                 </BoxMain>
-                <DockSaga />
+                {/* <DockSaga /> */}
               </>
             }
           />
