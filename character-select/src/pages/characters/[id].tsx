@@ -2,27 +2,54 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import HyperText from '@/components/ui/hyper-text';
 import Character from '../../data/dbdata';
+import { useState } from 'react';
+
+type CharacterType = {
+    id: number;
+    name: string;
+    path: string;
+    fighter: string;
+    valuation: string;
+    person: string;
+    characters: { name: string; path: string }[]; // Nested character forms
+};
 
 const CharacterDetails = () => {
     const { id } = useParams<{ id: string }>();
-    const navigate = useNavigate(); // Hook for navigation
+    const navigate = useNavigate();
 
     if (!id) {
         return <div>Character ID not provided</div>;
     }
 
-    const character = Character.find((char) => char.id === parseInt(id, 10)); // Ensure base 10 parsing
+    const character: CharacterType | undefined = Character.find(
+        (char: CharacterType) => char.id === parseInt(id, 10)
+    );
 
     if (!character) {
         return <div>Character not found</div>;
     }
 
-    // Assuming `character.path` is relative to the `public` folder
-    const imagePath = `/${character.path}`;
+    // Ensure characters array exists, fallback to an empty array
+    const [currentFormIndex, setCurrentFormIndex] = useState(0);
+    const forms = character.characters ?? []; // Default to an empty array
+    const currentForm = forms[currentFormIndex] || character; // Fallback to the main character
+
+    const imagePath = `/${currentForm.path}`;
 
     // Go back function
     const handleGoBack = () => {
-        navigate(-1); // This will navigate to the previous page
+        navigate(-1);
+    };
+
+    // Function to go to the next form
+    const handleNextForm = () => {
+        setCurrentFormIndex((prevIndex) => (prevIndex + 1) % forms.length);
+    };
+
+    // Function to go to the previous form
+    const handlePrevForm = () => {
+        setCurrentFormIndex((prevIndex) => (prevIndex - 1 + forms.length) % forms.length);
     };
 
     return (
@@ -33,48 +60,82 @@ const CharacterDetails = () => {
                 style={{
                     position: 'relative',
                     width: '100%',
-                    height: 'auto', // Make the height of the container match the viewport height
+                    height: 'auto',
                     overflow: 'hidden',
                 }}
             >
                 <img
                     style={{
-                        position: 'fixed', // Keep the image fixed in place
-                        transform: 'translate(-25%, -5%)', // Center the image
+                        position: 'fixed',
+                        transform: 'translate(-25%, -5%)',
                         width: '80%',
-                        height: 'auto', // Match the viewport height
-                        zIndex: '-1', // Ensure the image is in the background
+                        height: 'auto',
+                        zIndex: '-1',
+                        opacity: 0,
+                        transition: 'opacity 1s ease-in-out 0.5s',
                     }}
                     src={imagePath}
-                    alt={character.name}
+                    alt={currentForm.name}
+                    onLoad={(e) => {
+                        const img = e.target as HTMLImageElement;
+                        img.style.opacity = '1';
+                    }}
                 />
+
                 <div
                     style={{
                         marginTop: '150px',
                         marginLeft: '50%',
-                        transform: 'translateY(-50%)', // Center the text vertically
-                        color: 'white', // Text color (change as needed)
-                        paddingLeft: '20px', // Optional padding for some space from the left edge
+                        transform: 'translateY(-50%)',
+                        color: 'white',
+                        paddingLeft: '20px',
                     }}
                 >
-                    <HyperText
-                        className="text-4xl font-bold"
-                        text={character.name}
-                    />
+                    <HyperText className="text-4xl font-bold" text={currentForm.name} />
                 </div>
             </div>
 
+            {/* Navigation Arrows */}
+            {forms.length > 1 && (
+                <>
+                    <div
+                        className="absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                        onClick={handlePrevForm}
+                        style={{
+                            zIndex: 2,
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            padding: '10px',
+                            borderRadius: '50%',
+                        }}
+                    >
+                        &lt;
+                    </div>
 
+                    <div
+                        className="absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                        onClick={handleNextForm}
+                        style={{
+                            zIndex: 2,
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            padding: '10px',
+                            borderRadius: '50%',
+                        }}
+                    >
+                        &gt;
+                    </div>
+                </>
+            )}
 
             {/* Go Back Button */}
-            <Button variant={'outline'}
+            <Button
+                variant={'outline'}
                 onClick={handleGoBack}
                 style={{
                     position: 'fixed',
-                    top: '20px', // Place it 20px from the top
-                    left: '20px', // Place it 20px from the left
+                    top: '20px',
+                    left: '20px',
                     padding: '10px 20px',
-                    zIndex: '2', // Ensure it appears above other elements
+                    zIndex: '2',
                 }}
             >
                 Go Back
