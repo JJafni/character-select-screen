@@ -243,7 +243,7 @@ const ImgCharacterData: Character[] = [
     {
         id: 14,
         name: "Gohan (KID)",
-        path: "src/assets/img/PCard_FavoriteCh/character0.png",
+        path: "src/assets/img/PCard_FavoriteCh/character033.png",
         type: "kid",
         fighter: "Z Fighter",
         person: "Gohan",

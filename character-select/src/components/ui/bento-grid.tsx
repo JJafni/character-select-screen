@@ -50,7 +50,7 @@ const BentoCard = ({
       "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)]",
       valuation === "Legendary Warrior" 
         ? "dark:[box-shadow:0_-20px_80px_-20px_#ffff004d_inset]" 
-        : "dark:[box-shadow:0_-20px_80px_-20px_#0066ff4d_inset]",
+        : "none",
       className,
     )}
   >

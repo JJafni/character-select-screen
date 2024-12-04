@@ -1,8 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 import Character from '../../data/dbdata';
 
 const CharacterDetails = () => {
     const { id } = useParams<{ id: string }>();
+    const navigate = useNavigate(); // Hook for navigation
 
     if (!id) {
         return <div>Character ID not provided</div>;
@@ -16,6 +18,11 @@ const CharacterDetails = () => {
 
     // Assuming `character.path` is relative to the `public` folder
     const imagePath = `/${character.path}`;
+
+    // Go back function
+    const handleGoBack = () => {
+        navigate(-1); // This will navigate to the previous page
+    };
 
     return (
         <div className="grid grid-cols-3 gap-4 overscroll-none">
@@ -59,7 +66,22 @@ const CharacterDetails = () => {
                 <p>Valuation: {character.valuation}</p>
                 <p>Type: {character.type}</p>
                 <p>Description: {character.name}</p> {/* Use a proper description field */}
+
             </div>
+
+            {/* Go Back Button */}
+            <Button variant={'outline'}
+                onClick={handleGoBack}
+                style={{
+                    position: 'fixed',
+                    top: '20px', // Place it 20px from the top
+                    left: '20px', // Place it 20px from the left
+                    padding: '10px 20px',
+                    zIndex: '2', // Ensure it appears above other elements
+                }}
+            >
+                Go Back
+            </Button>
         </div>
     );
 };
