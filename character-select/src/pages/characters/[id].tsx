@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import HyperText from '@/components/ui/hyper-text';
 import Character from '../../data/dbdata';
 
 const CharacterDetails = () => {
@@ -47,27 +48,23 @@ const CharacterDetails = () => {
                     src={imagePath}
                     alt={character.name}
                 />
+                <div
+                    style={{
+                        marginTop: '150px',
+                        marginLeft: '50%',
+                        transform: 'translateY(-50%)', // Center the text vertically
+                        color: 'white', // Text color (change as needed)
+                        paddingLeft: '20px', // Optional padding for some space from the left edge
+                    }}
+                >
+                    <HyperText
+                        className="text-4xl font-bold"
+                        text={character.name}
+                    />
+                </div>
             </div>
 
-            {/* Character Details */}
-            <div
-                className="row-span-2 col-span-1"
-                style={{
-                    border: 'solid white 1px',
-                    position: 'absolute',
-                    right: '30%',
-                    padding: '20px',
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
-                    color: 'white',
-                    zIndex: '1', // Ensure content is above the background
-                }}
-            >
-                <h1>{character.name}</h1>
-                <p>Valuation: {character.valuation}</p>
-                <p>Type: {character.type}</p>
-                <p>Description: {character.name}</p> {/* Use a proper description field */}
 
-            </div>
 
             {/* Go Back Button */}
             <Button variant={'outline'}
