@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useMediaQuery } from 'react-responsive'
 import HyperText from '@/components/ui/hyper-text';
 import Character from '../../data/dbdata';
 import { useState } from 'react';
@@ -15,15 +16,16 @@ type CharacterType = {
 };
 
 const CharacterDetails = () => {
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
 
     if (!id) {
         return <div>Character ID not provided</div>;
     }
-
     const character: CharacterType | undefined = Character.find(
-        (char: CharacterType) => char.id === parseInt(id, 10)
+        (char) => char.id === parseInt(id, 10)
     );
 
     if (!character) {
@@ -58,41 +60,42 @@ const CharacterDetails = () => {
             <div
                 className="row-span-1 col-span-2 parallax-container"
                 style={{
-                    position: 'relative',
+                    display: 'flex',
+                    justifyContent: 'space-between',
                     width: '100%',
                     height: 'auto',
                     overflow: 'hidden',
                 }}
             >
-                <img
-                    style={{
-                        position: 'fixed',
-                        transform: 'translate(-25%, -5%)',
-                        width: '80%',
-                        height: 'auto',
-                        zIndex: '-1',
-                        opacity: 0,
-                        transition: 'opacity 1s ease-in-out 0.5s',
-                    }}
-                    src={imagePath}
-                    alt={currentForm.name}
-                    onLoad={(e) => {
-                        const img = e.target as HTMLImageElement;
-                        img.style.opacity = '1';
-                    }}
-                />
-
+                <div>
+                    <img
+                        style={{
+                            position: 'fixed',
+                            transform: 'translate(-25%, -5%)',
+                            width: '80%',
+                            height: 'auto',
+                            zIndex: '-1',
+                            opacity: 0,
+                            transition: 'opacity 1s ease-in-out 0.5s',
+                        }}
+                        src={imagePath}
+                        alt={currentForm.name}
+                        onLoad={(e) => {
+                            const img = e.target as HTMLImageElement;
+                            img.style.opacity = '1';
+                        }}
+                    />
+                    </div>
                 <div
                     style={{
                         marginTop: '150px',
-                        marginLeft: '50%',
                         transform: 'translateY(-50%)',
                         color: 'white',
-                        paddingLeft: '20px',
                     }}
                 >
-                    <HyperText className="text-4xl font-bold" text={currentForm.name} />
+                    <HyperText className="2xl:text-4xl text-2xl font-bold" text={currentForm.name} />
                 </div>
+
             </div>
 
             {/* Navigation Arrows */}
