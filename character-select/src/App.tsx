@@ -1,6 +1,6 @@
 import './App.css';
 import { useMediaQuery } from '@mantine/hooks';
-import { BoxMain, DockSaga, Hero } from './components';
+import { BoxMain, DockSaga, Hero, NavbarMain } from './components';
 import CharacterGrid from './components/CharacterLayout/CharacterGrid';
 import characterData from './data/dbdata';
 import { ThemeProvider } from "@/components/theme-provider";
@@ -21,6 +21,7 @@ const App = () => {
             path="/"
             element={
               <>
+              <NavbarMain/>
                 <Hero />
                 <BoxMain>
                   <CharacterGrid cols={cols} characters={characterData} />
