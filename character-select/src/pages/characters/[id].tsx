@@ -1,11 +1,11 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { useMediaQuery } from 'react-responsive'
 import HyperText from '@/components/ui/hyper-text';
 import Character from '../../data/dbdata';
 import { useState } from 'react';
 
 type CharacterType = {
+    // Character: string;
     id: number;
     name: string;
     path: string;
@@ -16,7 +16,6 @@ type CharacterType = {
 };
 
 const CharacterDetails = () => {
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
@@ -25,7 +24,7 @@ const CharacterDetails = () => {
         return <div>Character ID not provided</div>;
     }
     const character: CharacterType | undefined = Character.find(
-        (char) => char.id === parseInt(id, 10)
+        (char): char is CharacterType => char.id !== undefined && char.id === parseInt(id, 10)
     );
 
     if (!character) {
