@@ -70,7 +70,9 @@ const CharacterGrid = ({ cols = 4, characters }: CharacterGridProps) => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{
                                     opacity: inView ? 1 : 0,
-                                    y: inView ? 0 : 50,
+                                    y: char.valuation !== 'Legendary Warrior' ? (inView ? 0 : 50) : 0,
+                                    
+                                    
                                 }}
                                 transition={{
                                     opacity: { duration: 0.5 },
