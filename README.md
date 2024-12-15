@@ -18,8 +18,8 @@ Ensure you have the following installed:
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/dragon-ball-data.git
-   cd dragon-ball-data
+   git clone https://github.com/JJafni/character-select-screen.git
+   cd character-select-screen
    ```
 
 2. Install dependencies:
@@ -42,19 +42,9 @@ Ensure you have the following installed:
 - Explore the character information by navigating through the app.
 
 ## Technologies Used
-- **Frontend**: React.js, Tailwind CSS
-- **Backend**: Node.js, Express
-- **Data**: JSON or API (Specify your data source if applicable)
-
-## Contributing
-We welcome contributions! To contribute:
-1. Fork the repository.
-2. Create a new branch (`feature/your-feature-name`).
-3. Commit your changes and push to your fork.
-4. Open a pull request.
-
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+- **Frontend**: React.js, Vite, Tailwind CSS
+- **Backend**: Node.js
+- **Data**: JSON or API
 
 ---
 
